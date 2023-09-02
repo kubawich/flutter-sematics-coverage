@@ -1,0 +1,20 @@
+name: "Flutter semantics coverage"
+description: "Checks if all Dart classes in a Flutter project are wrapped in a Semantics widget"
+author: "Jakub Wichlinski @kubawich"
+branding:
+  icon: 'user-check'
+  color: 'green'
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout code
+      run: git clone ${{ github.event.repository.clone_url }} .
+      shell: bash
+
+    - name: Make script executable
+      run: chmod +x setup.sh
+      shell: bash
+
+    - name: Run Semantics check script
+      run: setup.sh
+      shell: bash
